@@ -1,387 +1,104 @@
-export default function App() {
-  const alumnos = {
-    "1": {
-      empresa: "Centro Salud Loeches",
-      direccion: "Calle Virgen de las Angustias s/n, Loeches",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00"
-    },
-    "2": {
-      empresa: "Centro Salud Loeches",
-      direccion: "Calle Virgen de las Angustias s/n, Loeches",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00"
-    },
-    "3": {
-      empresa: "Centro Salud Loeches",
-      direccion: "Calle Virgen de las Angustias s/n, Loeches",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00"
-    },
-    "4": {
-      empresa: "Centro Salud Loeches",
-      direccion: "Calle Virgen de las Angustias s/n, Loeches",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00"
-    },
-    "5": {
-      empresa: "Centro Salud Loeches",
-      direccion: "Calle Virgen de las Angustias s/n, Loeches",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00"
-    },
-    "6": {
-      empresa: "TAFAD Madrid",
-      direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz",
-      horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30"
-    },
-    "7": {
-      empresa: "TAFAD Madrid",
-      direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz",
-      horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30"
-    },
-    "8": {
-      empresa: "TAFAD Madrid",
-      direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz",
-      horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30"
-    },
-    "9": {
-      empresa: "TAFAD Madrid",
-      direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz",
-      horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30"
-    },
-    "10": {
-      empresa: "Universidad de Alcalá (UAH)",
-      direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
-    },
-    "11": {
-      empresa: "Universidad de Alcalá (UAH)",
-      direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares",
-      horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 15:00-19:00 | 26/03/2026 09:00-14:00"
-    },
-    "12": {
-      empresa: "Universidad de Alcalá (UAH)",
-      direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
-    },
-    "13": {
-      empresa: "Universidad de Alcalá (UAH)",
-      direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
-    },
-    "14": {
-      empresa: "Universidad de Alcalá (UAH)",
-      direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
-    },
-    "15": {
-      empresa: "Universidad de Alcalá (UAH)",
-      direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
-    },
-    "16": {
-      empresa: "Frimagón",
-      direccion: "Carretera Loeches a Alcalá de Henares, 1",
-      horario: "Lunes a Jueves 09:00-13:00"
-    },
-    "17": {
-      empresa: "Policía Local Loeches",
-      direccion: "C. Molino, 29, 28890 Loeches, Madrid",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00"
-    },
-    "18": {
-      empresa: "Policía Local Loeches",
-      direccion: "C. Molino, 29, 28890 Loeches, Madrid",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00"
-    },
-    "19": {
-      empresa: "Policía Local Loeches",
-      direccion: "C. Molino, 29, 28890 Loeches, Madrid",
-      horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
-    },
-    "20": {
-      empresa: "Policía Local Loeches",
-      direccion: "C. Molino, 29, 28890 Loeches, Madrid",
-      horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
-    },
-    "21": {
-      empresa: "Policía Local Loeches",
-      direccion: "C. Molino, 29, 28890 Loeches, Madrid",
-      horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
-    },
-    "22": {
-      empresa: "Policía Local Loeches",
-      direccion: "C. Molino, 29, 28890 Loeches, Madrid",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00"
-    },
-    "23": {
-      empresa: "Policía Local Loeches",
-      direccion: "C. Molino, 29, 28890 Loeches, Madrid",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00"
-    },
-    "24": {
-      empresa: "Hospital Quirón Torrejón",
-      direccion: "Avenida de la Constitución 249, Torrejón de Ardoz",
-      horario: "24/03/2026 09:00-13:00 | 25/03/2026 09:00-13:00 | 26/03/2026 09:00-13:00"
-    },
-    "25": {
-      empresa: "Hospital Quirón Torrejón",
-      direccion: "Avenida de la Constitución 249, Torrejón de Ardoz",
-      horario: "24/03/2026 09:00-13:00 | 25/03/2026 09:00-13:00 | 26/03/2026 09:00-13:00"
-    },
-    "26": {
-      empresa: "Hospital Quirón Torrejón",
-      direccion: "Avenida de la Constitución 249, Torrejón de Ardoz",
-      horario: "24/03/2026 09:00-13:00 | 25/03/2026 09:00-13:00 | 26/03/2026 09:00-13:00"
-    },
-    "27": {
-      empresa: "Subdirección General de Fomento del Empleo",
-      direccion: "Calle Vía Lusitana, 21",
-      horario: "24/03/2026 10:00-14:00 | 25/03/2026 10:00-14:00 | 26/03/2026 10:00-14:00"
-    },
-    "28": {
-      empresa: "Subdirección General de Fomento del Empleo",
-      direccion: "Calle Vía Lusitana, 21",
-      horario: "24/03/2026 10:00-14:00 | 25/03/2026 10:00-14:00 | 26/03/2026 10:00-14:00"
-    },
-    "29": {
-      empresa: "Universidad Politécnica de Madrid – ETSIT",
-      direccion: "Avda. Complutense, 30, 28040 Madrid (Campus Ciudad Universitaria)",
-      horario: "24/03/2026 10:00-14:00 | 25/03/2026 10:00-14:00 | 26/03/2026 10:00-14:00"
-    },
-    "30": {
-      empresa: "CEIP Torres de la Alameda",
-      direccion: "C. de los Paraísos, s/n, 28813 Torres de la Alameda",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
-    },
-    "31": {
-      empresa: "CEIP Torres de la Alameda",
-      direccion: "C. de los Paraísos, s/n, 28813 Torres de la Alameda",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
-    },
-    "32": {
-      empresa: "Clínica Dental Cueto",
-      direccion: "Calle Arganda, 1, Loeches",
-      horario: "Lunes 09:00-14:00 | Martes 15:30-20:30 | Miércoles 15:30-20:30 | Jueves 09:00-14:00"
-    },
-    "33": {
-      empresa: "Clínica Dental Cueto",
-      direccion: "Calle Arganda, 1, Loeches",
-      horario: "Lunes 15:30-20:30 | Martes 09:00-14:00 | Miércoles 09:00-14:00 | Jueves 15:30-20:30"
-    },
-    "34": {
-      empresa: "Eurovía",
-      direccion: "C. Madrid, 12, 28850 Torrejón de Ardoz, Madrid",
-      horario: "23/03/2026 09:00-14:00 y 15:00-17:00 | 24/03/2026 09:00-14:00 y 15:00-17:00 | 25/03/2026 09:00-14:00 y 15:00-17:00 | 26/03/2026 09:00-14:00 y 15:00-17:00"
-    },
-    "35": {
-      empresa: "CEIP Conde Duque de Olivares",
-      direccion: "Plaza Duquesa de Alba, 3",
-      horario: "09:00 a 14:00"
-    },
-    "36": {
-      empresa: "CEIP Conde Duque de Olivares",
-      direccion: "Plaza Duquesa de Alba, 3",
-      horario: "09:00 a 14:00"
-    },
-    "37": {
-      empresa: "CEIP Conde Duque de Olivares",
-      direccion: "Plaza Duquesa de Alba, 3",
-      horario: "09:00 a 14:00"
-    },
-    "38": {
-            empresa: "Editorial Verbum",
-      direccion: "Pendiente de completar",
-      horario: "Pendiente de completar"
-    },
-    "39": {
-            empresa: "Editorial Verbum",
-      direccion: "Pendiente de completar",
-      horario: "Pendiente de completar"
-    },
-    "40": {
-            empresa: "Editorial Verbum",
-      direccion: "Pendiente de completar",
-      horario: "Pendiente de completar"
-    },
-    "41": {
-      empresa: "Clínica Dental Nexus",
-      direccion: "Calle Circunvalación 2, Torrejón de Ardoz",
-      horario: "23/03/2026 16:00-19:00 | 24/03/2026 16:00-19:00 | 25/03/2026 16:00-19:00 | 26/03/2026 16:00-19:00"
-    },
-    "42": {
-      empresa: "Toscana Arquitectos",
-      direccion: "Ronda de Poniente 7, Torrejón de Ardoz",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
-    },
-    "43": {
-            empresa: "Con su padre",
-      direccion: "Pendiente de completar",
-      horario: "Pendiente de completar"
-    },
-    "44": {
-            empresa: "Inmobiliaria Loeches",
-      direccion: "Pendiente de completar",
-      horario: "Pendiente de completar"
-    },
-    "45": {
-            empresa: "Valsam Fisioterapia",
-      direccion: "Pendiente de completar",
-      horario: "Pendiente de completar"
-    },
-    "46": {
-            empresa: "EI La Casita",
-      direccion: "Pendiente de completar",
-      horario: "Pendiente de completar"
-    },
-    "47": {
-            empresa: "EI La Casita",
-      direccion: "Pendiente de completar",
-      horario: "Pendiente de completar"
-    },
-    "48": {
-            empresa: "EI La Casita",
-      direccion: "Pendiente de completar",
-      horario: "Pendiente de completar"
-    },
-    "49": {
-            empresa: "EI La Casita",
-      direccion: "Pendiente de completar",
-      horario: "Pendiente de completar"
-    },
-    "50": {
-            empresa: "EI La Casita",
-      direccion: "Pendiente de completar",
-      horario: "Pendiente de completar"
-    },
-    "51": {
-      empresa: "EOI Torrejón de Ardoz",
-      direccion: "Calle San Fernando 1, Torrejón de Ardoz",
-      horario: "23/03/2026 16:00-19:00 | 24/03/2026 09:30-13:30 | 25/03/2026 09:30-13:30 | 26/03/2026 16:00-19:00"
-    },
-    "52": {
-      empresa: "Toscana Arquitectos",
-      direccion: "Ronda de Poniente 7, Torrejón de Ardoz",
-      horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
-    }
-  };
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>4º ESO + Empresa</title>
 
-  const [numero, setNumero] = React.useState("");
-  const [resultado, setResultado] = React.useState(null);
-  const [buscado, setBuscado] = React.useState(false);
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  const buscarAlumno = () => {
-    const limpio = numero.trim();
-    setBuscado(true);
-    setResultado(alumnos[limpio] || null);
-  };
-
-  const limpiar = () => {
-    setNumero("");
-    setResultado(null);
-    setBuscado(false);
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") buscarAlumno();
-  };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-white to-sky-100 flex items-center justify-center p-4 sm:p-6">
-      <div className="w-full max-w-3xl bg-white/90 backdrop-blur rounded-[28px] shadow-2xl border border-white overflow-hidden">
-        <div className="bg-gradient-to-r from-indigo-600 to-sky-500 px-6 py-8 sm:px-10 text-white">
-          <p className="text-sm uppercase tracking-[0.25em] opacity-90 mb-2">Programa educativo</p>
-          <h1 className="text-3xl sm:text-4xl font-bold">4º ESO + Empresa</h1>
-          <p className="mt-3 text-white/90 max-w-2xl text-sm sm:text-base">
-            Consulta de destino de estancia. Introduce tu número asignado y verás automáticamente la empresa, la dirección y el horario.
-          </p>
-        </div>
-
-        <div className="p-6 sm:p-10">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-3 mb-8">
-            <input
-              type="text"
-              value={numero}
-              onChange={(e) => setNumero(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder="Introduce tu número, por ejemplo: 101"
-              className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-4 text-base sm:text-lg outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
-            />
-            <button
-              onClick={buscarAlumno}
-              className="rounded-2xl px-6 py-4 bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200"
-            >
-              Consultar
-            </button>
-            <button
-              onClick={limpiar}
-              className="rounded-2xl px-6 py-4 bg-slate-100 text-slate-700 font-semibold hover:bg-slate-200 transition"
-            >
-              Limpiar
-            </button>
-          </div>
-
-          {!resultado && !buscado && (
-            <div className="grid sm:grid-cols-3 gap-4 mb-8">
-              <div className="rounded-2xl bg-indigo-50 border border-indigo-100 p-4">
-                <p className="text-sm font-semibold text-indigo-700 mb-1">Paso 1</p>
-                <p className="text-slate-700 text-sm">Busca tu número en el listado entregado por el centro.</p>
-              </div>
-              <div className="rounded-2xl bg-sky-50 border border-sky-100 p-4">
-                <p className="text-sm font-semibold text-sky-700 mb-1">Paso 2</p>
-                <p className="text-slate-700 text-sm">Escríbelo en la casilla y pulsa en consultar.</p>
-              </div>
-              <div className="rounded-2xl bg-emerald-50 border border-emerald-100 p-4">
-                <p className="text-sm font-semibold text-emerald-700 mb-1">Paso 3</p>
-                <p className="text-slate-700 text-sm">Verás tu empresa asignada, dirección y horario.</p>
-              </div>
-            </div>
-          )}
-
-          {resultado && (
-            <div className="rounded-[24px] border border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-6 sm:p-8 shadow-lg shadow-emerald-100">
-              <div className="flex items-start justify-between gap-4 flex-wrap mb-6">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.2em] text-emerald-700 font-semibold">Asignación encontrada</p>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mt-1">Asignación de empresa</h2>
-                </div>
-                <div className="rounded-full bg-white border border-emerald-200 px-4 py-2 text-sm font-semibold text-emerald-700 shadow-sm">
-                  Nº {numero}
-                </div>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-3">
-                <div className="rounded-2xl bg-white border border-slate-200 p-5 shadow-sm">
-                  <p className="text-xs uppercase tracking-wide text-slate-500 font-semibold mb-2">Empresa</p>
-                  <p className="text-slate-800 font-bold text-lg leading-snug">{resultado.empresa}</p>
-                </div>
-                <div className="rounded-2xl bg-white border border-slate-200 p-5 shadow-sm">
-                  <p className="text-xs uppercase tracking-wide text-slate-500 font-semibold mb-2">Dirección</p>
-                  <p className="text-slate-700 leading-snug">{resultado.direccion}</p>
-                </div>
-                <div className="rounded-2xl bg-white border border-slate-200 p-5 shadow-sm">
-                  <p className="text-xs uppercase tracking-wide text-slate-500 font-semibold mb-2">Horario</p>
-                  <p className="text-slate-700 leading-snug">{resultado.horario}</p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {buscado && !resultado && (
-            <div className="rounded-[24px] border border-rose-200 bg-rose-50 p-6 text-rose-700 shadow-sm">
-              <p className="font-bold text-lg mb-2">Número no encontrado</p>
-              <p>
-                Revisa que el número esté bien escrito y vuelve a intentarlo. Si el problema continúa, consulta con el profesorado responsable del programa.
-              </p>
-            </div>
-          )}
-
-          <div className="mt-8 rounded-2xl bg-slate-50 border border-slate-200 p-5">
-            <p className="font-semibold text-slate-800 mb-2">Estructura de datos que puedes editar</p>
-            <pre className="text-xs sm:text-sm text-slate-700 whitespace-pre-wrap overflow-x-auto">{`"101": {
-    empresa: "Clínica Dental Sonrisa",
-  direccion: "Calle Mayor, 25, 28013 Madrid",
-  horario: "Del 15 al 19 de abril, de 9:00 a 14:00"
-}`}</pre>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+<style>
+body{
+font-family: Arial;
+background:#f4f6fb;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 }
+
+.app{
+background:white;
+padding:40px;
+border-radius:10px;
+width:400px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+margin-bottom:10px;
+}
+
+button{
+padding:10px 15px;
+margin-right:5px;
+}
+</style>
+
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+function App(){
+
+const alumnos = {
+"1":{empresa:"Centro Salud Loeches",direccion:"Calle Virgen de las Angustias s/n, Loeches",horario:"23/03 09:00-14:00 | 24/03 09:00-14:00 | 25/03 09:00-14:00"},
+"6":{empresa:"TAFAD Madrid",direccion:"Av. Cristóbal Colón 54",horario:"23/03-26/03 08:30-14:30"},
+"16":{empresa:"Frimagón",direccion:"Carretera Loeches-Alcalá 1",horario:"Lunes-Jueves 09:00-13:00"},
+"29":{empresa:"UPM ETSIT",direccion:"Av. Complutense 30 Madrid",horario:"24/03-26/03 10:00-14:00"},
+"34":{empresa:"Eurovía",direccion:"C/ Madrid 12 Torrejón",horario:"23/03-26/03 09:00-14:00 y 15:00-17:00"},
+"41":{empresa:"Clínica Dental Nexus",direccion:"C/ Circunvalación 2 Torrejón",horario:"23/03-26/03 16:00-19:00"}
+};
+
+const[numero,setNumero]=React.useState("");
+const[resultado,setResultado]=React.useState(null);
+
+function buscar(){
+setResultado(alumnos[numero] || null);
+}
+
+return(
+<div className="app">
+
+<h2>4º ESO + Empresa</h2>
+
+<p>Introduce tu número</p>
+
+<input
+value={numero}
+onChange={(e)=>setNumero(e.target.value)}
+placeholder="Ejemplo: 12"
+/>
+
+<button onClick={buscar}>Consultar</button>
+
+{resultado && (
+<div>
+<h3>Empresa</h3>
+<p>{resultado.empresa}</p>
+
+<h3>Dirección</h3>
+<p>{resultado.direccion}</p>
+
+<h3>Horario</h3>
+<p>{resultado.horario}</p>
+</div>
+)}
+
+</div>
+);
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+
+</script>
+
+</body>
+</html>
