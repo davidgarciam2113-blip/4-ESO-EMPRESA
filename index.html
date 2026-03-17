@@ -25,6 +25,10 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
+h1 {
+  margin-bottom: 20px;
+}
+
 input {
   padding: 12px;
   font-size: 16px;
@@ -35,6 +39,7 @@ input {
 button {
   padding: 12px;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .result {
@@ -62,76 +67,84 @@ function App() {
 
 const alumnos = {
 
-"K7P4": { empresa:"Centro Salud Loeches", direccion:"Calle Virgen de las Angustias s/n, Loeches", horario:"L-J 09:00-14:00" },
-"L9X2": { empresa:"Centro Salud Loeches", direccion:"Calle Virgen de las Angustias s/n, Loeches", horario:"L-J 09:00-14:00" },
+"K7P4": {empresa:"Centro Salud Loeches",direccion:"Calle Virgen de las Angustias s/n, Loeches",horario:"Lunes a Jueves 09:00-14:00"},
+"L9X2": {empresa:"Centro Salud Loeches",direccion:"Calle Virgen de las Angustias s/n, Loeches",horario:"Lunes a Jueves 09:00-14:00"},
 
-"C8F3": { empresa:"TAFAD Madrid", direccion:"Av. Cristóbal Colón 54, Torrejón", horario:"L-J 08:30-14:30" },
+"C8F3": {empresa:"TAFAD Madrid",direccion:"Av. Cristóbal Colón 54, Torrejón",horario:"Lunes a Jueves 08:30-14:30"},
 
-"H4P6": { empresa:"UAH", direccion:"Plaza San Diego s/n, Alcalá", horario:"L-J 09:00-14:00" },
+"H4P6": {empresa:"Universidad de Alcalá",direccion:"Plaza San Diego s/n, Alcalá de Henares",horario:"Lunes a Jueves 09:00-14:00"},
 
-"C4L8": { empresa:"UPM", direccion:"Av. Complutense 30, Madrid", horario:"24-26 Marzo 10:00-14:00" },
+"C4L8": {empresa:"Universidad Politécnica de Madrid",direccion:"Av. Complutense 30, Madrid",horario:"24-26 Marzo 10:00-14:00"},
 
-"Q5C7": { empresa:"Policía Local Loeches", direccion:"C. Molino 29, Loeches", horario:"L-M 09:00-14:00 | X-J 15:00-19:00" },
+/* POLICÍA LOCAL */
 
-"F3K6": { empresa:"Policía Local Loeches", direccion:"C. Molino 29, Loeches", horario:"L-M 15:00-19:00 | X-J 09:00-14:00" },
+"Q5C7": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 09:00-14:00 | 24/03 09:00-14:00 | 25/03 15:00-19:00 | 26/03 15:00-19:00"},
+"S9V4": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 09:00-14:00 | 24/03 09:00-14:00 | 25/03 15:00-19:00 | 26/03 15:00-19:00"},
+"J6R3": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 09:00-14:00 | 24/03 09:00-14:00 | 25/03 15:00-19:00 | 26/03 15:00-19:00"},
+"U2K8": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 09:00-14:00 | 24/03 09:00-14:00 | 25/03 15:00-19:00 | 26/03 15:00-19:00"},
+"M6Q3": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 09:00-14:00 | 24/03 09:00-14:00 | 25/03 15:00-19:00 | 26/03 15:00-19:00"},
 
-"V4N7": { empresa:"Policía Local Loeches", direccion:"C. Molino 29, Loeches", horario:"L-M 15:00-19:00 | X-J 09:00-14:00" },
+"F3K6": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 15:00-19:00 | 24/03 15:00-19:00 | 25/03 09:00-14:00 | 26/03 09:00-14:00"},
+"E7P8": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 15:00-19:00 | 24/03 15:00-19:00 | 25/03 09:00-14:00 | 26/03 09:00-14:00"},
+"A4T9": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 15:00-19:00 | 24/03 15:00-19:00 | 25/03 09:00-14:00 | 26/03 09:00-14:00"},
+"V4N7": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 15:00-19:00 | 24/03 15:00-19:00 | 25/03 09:00-14:00 | 26/03 09:00-14:00"},
 
-"M6Q3": { empresa:"Policía Local Loeches", direccion:"C. Molino 29, Loeches", horario:"L-M 09:00-14:00 | X-J 15:00-19:00" },
+/* OTROS */
 
-"R9L2": { empresa:"Cador Espacios", direccion:"Calle Alcalá 226, Madrid", horario:"L-J 09:30-13:30" },
+"R9L2": {empresa:"Cador Espacios",direccion:"Calle Alcalá 226, Madrid",horario:"Lunes a Jueves 09:30-13:30"},
 
-"M2C7": { empresa:"EI La Casita", direccion:"Calle Molino 1 y 3, Loeches", horario:"L-J 09:00-14:00" },
-"A8L5": { empresa:"EI La Casita", direccion:"Calle Molino 1 y 3, Loeches", horario:"L-J 09:00-14:00" },
+"M2C7": {empresa:"EI La Casita",direccion:"Calle Molino 1 y 3, Loeches",horario:"Lunes a Jueves 09:00-14:00"},
+"A8L5": {empresa:"EI La Casita",direccion:"Calle Molino 1 y 3, Loeches",horario:"Lunes a Jueves 09:00-14:00"},
+"W6R3": {empresa:"EI La Casita",direccion:"Calle Molino 1 y 3, Loeches",horario:"Lunes a Jueves 09:00-14:00"},
+"E3T7": {empresa:"EI La Casita",direccion:"Calle Molino 1 y 3, Loeches",horario:"Lunes a Jueves 09:00-14:00"},
 
-"P3W9": { empresa:"Toscana Arquitectos", direccion:"Ronda de Poniente 7, Torrejón", horario:"L-J 09:00-14:00" },
-
-"M8P5": { empresa:"Toscana Arquitectos", direccion:"Ronda de Poniente 7, Torrejón", horario:"L-J 09:00-14:00" }
+"P3W9": {empresa:"Toscana Arquitectos",direccion:"Ronda de Poniente 7, Torrejón",horario:"Lunes a Jueves 09:00-14:00"},
+"M8P5": {empresa:"Toscana Arquitectos",direccion:"Ronda de Poniente 7, Torrejón",horario:"Lunes a Jueves 09:00-14:00"}
 
 };
 
-const [codigo, setCodigo] = React.useState("");
-const [resultado, setResultado] = React.useState(null);
-const [buscado, setBuscado] = React.useState(false);
+const [codigo,setCodigo]=React.useState("");
+const [resultado,setResultado]=React.useState(null);
+const [buscado,setBuscado]=React.useState(false);
 
-const buscar = () => {
-  const c = codigo.toUpperCase();
+const buscar=()=>{
+  const c=codigo.toUpperCase().trim();
   setResultado(alumnos[c]);
   setBuscado(true);
-};
+}
 
-return (
+return(
 <div className="container">
 
-<h2>4º ESO + Empresa</h2>
+<h1>4º ESO + Empresa</h1>
 
 <input
-  value={codigo}
-  onChange={e => setCodigo(e.target.value)}
-  placeholder="Introduce tu código"
+value={codigo}
+onChange={e=>setCodigo(e.target.value)}
+placeholder="Introduce tu código"
 />
 
 <button onClick={buscar}>Consultar</button>
 
-{resultado && (
+{resultado &&
 <div className="result">
 <p><b>Empresa:</b> {resultado.empresa}</p>
 <p><b>Dirección:</b> {resultado.direccion}</p>
 <p><b>Horario:</b> {resultado.horario}</p>
 </div>
-)}
+}
 
-{buscado && !resultado && (
+{buscado && !resultado &&
 <div className="error">
 Código no válido
 </div>
-)}
+}
 
 </div>
 );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
 
 </script>
 </body>
