@@ -11,6 +11,7 @@
 
   <style>
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -21,6 +22,7 @@
       align-items: center;
       justify-content: center;
     }
+
     .card {
       width: 100%;
       max-width: 950px;
@@ -30,11 +32,13 @@
       box-shadow: 0 20px 50px rgba(0,0,0,0.12);
       border: 1px solid #fff;
     }
+
     .header {
       background: linear-gradient(90deg, #4f46e5, #0ea5e9);
       color: white;
       padding: 32px 24px;
     }
+
     .header p {
       margin: 0 0 8px 0;
       font-size: 12px;
@@ -42,10 +46,12 @@
       text-transform: uppercase;
       opacity: 0.9;
     }
+
     .header h1 {
       margin: 0;
       font-size: 38px;
     }
+
     .header .sub {
       margin-top: 12px;
       font-size: 16px;
@@ -53,13 +59,18 @@
       opacity: 0.95;
       max-width: 760px;
     }
-    .content { padding: 24px; }
+
+    .content {
+      padding: 24px;
+    }
+
     .search-row {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
       margin-bottom: 24px;
     }
+
     .search-row input {
       flex: 1;
       min-width: 220px;
@@ -67,7 +78,9 @@
       border-radius: 18px;
       border: 1px solid #cbd5e1;
       font-size: 16px;
+      text-transform: uppercase;
     }
+
     .search-row button {
       padding: 16px 22px;
       border: none;
@@ -76,37 +89,44 @@
       font-size: 15px;
       font-weight: bold;
     }
+
     .btn-primary {
       background: #4f46e5;
       color: white;
     }
+
     .btn-secondary {
       background: #f1f5f9;
       color: #334155;
     }
+
     .steps {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 14px;
       margin-bottom: 24px;
     }
+
     .step {
       padding: 16px;
       border-radius: 18px;
       border: 1px solid #e2e8f0;
       background: #f8fafc;
     }
+
     .step h3 {
       margin: 0 0 8px;
       font-size: 14px;
       color: #334155;
     }
+
     .step p {
       margin: 0;
       color: #475569;
       font-size: 14px;
       line-height: 1.5;
     }
+
     .result {
       border: 1px solid #bbf7d0;
       background: linear-gradient(135deg, #ecfdf5, #ffffff);
@@ -114,6 +134,7 @@
       padding: 24px;
       margin-bottom: 20px;
     }
+
     .result-top {
       display: flex;
       justify-content: space-between;
@@ -122,6 +143,7 @@
       flex-wrap: wrap;
       margin-bottom: 20px;
     }
+
     .badge {
       background: white;
       border: 1px solid #bbf7d0;
@@ -131,28 +153,33 @@
       color: #15803d;
       font-size: 14px;
     }
+
     .result h2 {
       margin: 0;
       font-size: 28px;
       color: #1e293b;
     }
+
     .result small {
       color: #15803d;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       font-weight: bold;
     }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 14px;
     }
+
     .box {
       background: white;
       border: 1px solid #e2e8f0;
       border-radius: 18px;
       padding: 18px;
     }
+
     .box h4 {
       margin: 0 0 10px;
       font-size: 12px;
@@ -160,12 +187,14 @@
       letter-spacing: 0.08em;
       color: #64748b;
     }
+
     .box p {
       margin: 0;
       color: #0f172a;
       line-height: 1.5;
       white-space: pre-line;
     }
+
     .error {
       border: 1px solid #fecaca;
       background: #fff1f2;
@@ -174,6 +203,7 @@
       padding: 20px;
       margin-bottom: 20px;
     }
+
     .footer-box {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
@@ -182,6 +212,7 @@
       color: #475569;
       font-size: 14px;
     }
+
     @media (max-width: 640px) {
       .header h1 { font-size: 30px; }
       .content { padding: 18px; }
@@ -196,115 +227,113 @@
   <script type="text/babel">
     function App() {
       const alumnos = {
-        "1": { empresa: "Centro Salud Loeches", direccion: "Calle Virgen de las Angustias s/n, Loeches", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00" },
-        "2": { empresa: "Centro Salud Loeches", direccion: "Calle Virgen de las Angustias s/n, Loeches", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00" },
-        "3": { empresa: "Centro Salud Loeches", direccion: "Calle Virgen de las Angustias s/n, Loeches", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00" },
-        "4": { empresa: "Centro Salud Loeches", direccion: "Calle Virgen de las Angustias s/n, Loeches", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00" },
-        "5": { empresa: "Centro Salud Loeches", direccion: "Calle Virgen de las Angustias s/n, Loeches", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00" },
+        "K7P4": { empresa: "Centro Salud Loeches", direccion: "Calle Virgen de las Angustias s/n, Loeches", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00" },
+        "L9X2": { empresa: "Centro Salud Loeches", direccion: "Calle Virgen de las Angustias s/n, Loeches", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00" },
+        "T6B8": { empresa: "Centro Salud Loeches", direccion: "Calle Virgen de las Angustias s/n, Loeches", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00" },
+        "M4Q7": { empresa: "Centro Salud Loeches", direccion: "Calle Virgen de las Angustias s/n, Loeches", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00" },
+        "R2H9": { empresa: "Centro Salud Loeches", direccion: "Calle Virgen de las Angustias s/n, Loeches", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00" },
 
-        "6": { empresa: "TAFAD Madrid", direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz", horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30" },
-        "7": { empresa: "TAFAD Madrid", direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz", horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30" },
-        "8": { empresa: "TAFAD Madrid", direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz", horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30" },
-        "9": { empresa: "TAFAD Madrid", direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz", horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30" },
+        "C8F3": { empresa: "TAFAD Madrid", direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz", horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30" },
+        "P6L4": { empresa: "TAFAD Madrid", direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz", horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30" },
+        "Z3T8": { empresa: "TAFAD Madrid", direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz", horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30" },
+        "X9K5": { empresa: "TAFAD Madrid", direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz", horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30" },
 
-        "10": { empresa: "Universidad de Alcalá (UAH)", direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
-        "11": { empresa: "Universidad de Alcalá (UAH)", direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares", horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 15:00-19:00 | 26/03/2026 09:00-14:00" },
-        "12": { empresa: "Universidad de Alcalá (UAH)", direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
-        "13": { empresa: "Universidad de Alcalá (UAH)", direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
-        "14": { empresa: "Universidad de Alcalá (UAH)", direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
-        "15": { empresa: "Universidad de Alcalá (UAH)", direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
+        "H4P6": { empresa: "Universidad de Alcalá (UAH)", direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
+        "G8M2": { empresa: "Universidad de Alcalá (UAH)", direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares", horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 15:00-19:00 | 26/03/2026 09:00-14:00" },
+        "T7R4": { empresa: "Universidad de Alcalá (UAH)", direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
+        "B3F9": { empresa: "Universidad de Alcalá (UAH)", direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
+        "N6J8": { empresa: "Universidad de Alcalá (UAH)", direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
+        "W2P7": { empresa: "Universidad de Alcalá (UAH)", direccion: "Universidad de Alcalá, Plaza de San Diego s/n, 28801 Alcalá de Henares", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
 
-        "16": { empresa: "Frimagón", direccion: "Carretera Loeches a Alcalá de Henares, 1", horario: "Lunes a Jueves 09:00-13:00" },
+        "Y8L3": { empresa: "Frimagón", direccion: "Carretera Loeches a Alcalá de Henares, 1", horario: "Lunes a Jueves 09:00-13:00" },
 
-        "17": { empresa: "Policía Local Loeches", direccion: "C. Molino, 29, 28890 Loeches, Madrid", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00" },
-        "18": { empresa: "Policía Local Loeches", direccion: "C. Molino, 29, 28890 Loeches, Madrid", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00" },
-        "19": { empresa: "Policía Local Loeches", direccion: "C. Molino, 29, 28890 Loeches, Madrid", horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
-        "20": { empresa: "Policía Local Loeches", direccion: "C. Molino, 29, 28890 Loeches, Madrid", horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
-        "21": { empresa: "Policía Local Loeches", direccion: "C. Molino, 29, 28890 Loeches, Madrid", horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
-        "22": { empresa: "Policía Local Loeches", direccion: "C. Molino, 29, 28890 Loeches, Madrid", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00" },
-        "23": { empresa: "Policía Local Loeches", direccion: "C. Molino, 29, 28890 Loeches, Madrid", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00" },
+        "Q5C7": { empresa: "Policía Local Loeches", direccion: "C. Molino, 29, 28890 Loeches, Madrid", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00" },
+        "S9V4": { empresa: "Policía Local Loeches", direccion: "C. Molino, 29, 28890 Loeches, Madrid", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00" },
+        "F3K6": { empresa: "Policía Local Loeches", direccion: "C. Molino, 29, 28890 Loeches, Madrid", horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
+        "E7P8": { empresa: "Policía Local Loeches", direccion: "C. Molino, 29, 28890 Loeches, Madrid", horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
+        "A4T9": { empresa: "Policía Local Loeches", direccion: "C. Molino, 29, 28890 Loeches, Madrid", horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
+        "J6R3": { empresa: "Policía Local Loeches", direccion: "C. Molino, 29, 28890 Loeches, Madrid", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00" },
+        "U2K8": { empresa: "Policía Local Loeches", direccion: "C. Molino, 29, 28890 Loeches, Madrid", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00" },
+        "V4N7": { empresa: "Policía Local Loeches", direccion: "C. Molino, 29, 28890 Loeches, Madrid", horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
+        "M6Q3": { empresa: "Policía Local Loeches", direccion: "C. Molino, 29, 28890 Loeches, Madrid", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00" },
 
-        "24": { empresa: "Hospital Quirón Torrejón", direccion: "Avenida de la Constitución 249, Torrejón de Ardoz", horario: "24/03/2026 09:00-13:00 | 25/03/2026 09:00-13:00 | 26/03/2026 09:00-13:00" },
-        "25": { empresa: "Hospital Quirón Torrejón", direccion: "Avenida de la Constitución 249, Torrejón de Ardoz", horario: "24/03/2026 09:00-13:00 | 25/03/2026 09:00-13:00 | 26/03/2026 09:00-13:00" },
-        "26": { empresa: "Hospital Quirón Torrejón", direccion: "Avenida de la Constitución 249, Torrejón de Ardoz", horario: "24/03/2026 09:00-13:00 | 25/03/2026 09:00-13:00 | 26/03/2026 09:00-13:00" },
+        "L3D7": { empresa: "Hospital Quirón Torrejón", direccion: "Avenida de la Constitución 249, Torrejón de Ardoz", horario: "24/03/2026 09:00-13:00 | 25/03/2026 09:00-13:00 | 26/03/2026 09:00-13:00" },
+        "P4M9": { empresa: "Hospital Quirón Torrejón", direccion: "Avenida de la Constitución 249, Torrejón de Ardoz", horario: "24/03/2026 09:00-13:00 | 25/03/2026 09:00-13:00 | 26/03/2026 09:00-13:00" },
+        "K8W2": { empresa: "Hospital Quirón Torrejón", direccion: "Avenida de la Constitución 249, Torrejón de Ardoz", horario: "24/03/2026 09:00-13:00 | 25/03/2026 09:00-13:00 | 26/03/2026 09:00-13:00" },
 
-        "27": { empresa: "Subdirección General de Fomento del Empleo", direccion: "Calle Vía Lusitana, 21", horario: "24/03/2026 10:00-14:00 | 25/03/2026 10:00-14:00 | 26/03/2026 10:00-14:00" },
-        "28": { empresa: "Subdirección General de Fomento del Empleo", direccion: "Calle Vía Lusitana, 21", horario: "24/03/2026 10:00-14:00 | 25/03/2026 10:00-14:00 | 26/03/2026 10:00-14:00" },
+        "T2S6": { empresa: "Subdirección General de Fomento del Empleo", direccion: "Calle Vía Lusitana, 21", horario: "24/03/2026 10:00-14:00 | 25/03/2026 10:00-14:00 | 26/03/2026 10:00-14:00" },
+        "H7X5": { empresa: "Subdirección General de Fomento del Empleo", direccion: "Calle Vía Lusitana, 21", horario: "24/03/2026 10:00-14:00 | 25/03/2026 10:00-14:00 | 26/03/2026 10:00-14:00" },
 
-        "29": { empresa: "Universidad Politécnica de Madrid - ETSIT", direccion: "Avda. Complutense, 30, 28040 Madrid (Campus Ciudad Universitaria)", horario: "24/03/2026 10:00-14:00 | 25/03/2026 10:00-14:00 | 26/03/2026 10:00-14:00" },
+        "C4L8": { empresa: "Universidad Politécnica de Madrid - ETSIT", direccion: "Avda. Complutense, 30, 28040 Madrid (Campus Ciudad Universitaria)", horario: "24/03/2026 10:00-14:00 | 25/03/2026 10:00-14:00 | 26/03/2026 10:00-14:00" },
 
-        "30": { empresa: "CEIP Torres de la Alameda", direccion: "C. de los Paraísos, s/n, 28813 Torres de la Alameda", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
-        "31": { empresa: "CEIP Torres de la Alameda", direccion: "C. de los Paraísos, s/n, 28813 Torres de la Alameda", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
+        "D9F3": { empresa: "CEIP Torres de la Alameda", direccion: "C. de los Paraísos, s/n, 28813 Torres de la Alameda", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
+        "G6Q4": { empresa: "CEIP Torres de la Alameda", direccion: "C. de los Paraísos, s/n, 28813 Torres de la Alameda", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
 
-        "32": { empresa: "Clínica Dental Cueto", direccion: "Calle Arganda, 1, Loeches", horario: "Lunes 09:00-14:00 | Martes 15:30-20:30 | Miércoles 15:30-20:30 | Jueves 09:00-14:00" },
-        "33": { empresa: "Clínica Dental Cueto", direccion: "Calle Arganda, 1, Loeches", horario: "Lunes 15:30-20:30 | Martes 09:00-14:00 | Miércoles 09:00-14:00 | Jueves 15:30-20:30" },
+        "N8T7": { empresa: "Clínica Dental Cueto", direccion: "Calle Arganda, 1, Loeches", horario: "Lunes 09:00-14:00 | Martes 15:30-20:30 | Miércoles 15:30-20:30 | Jueves 09:00-14:00" },
+        "R5J2": { empresa: "Clínica Dental Cueto", direccion: "Calle Arganda, 1, Loeches", horario: "Lunes 15:30-20:30 | Martes 09:00-14:00 | Miércoles 09:00-14:00 | Jueves 15:30-20:30" },
 
-        "34": { empresa: "Eurovía", direccion: "C. Madrid, 12, 28850 Torrejón de Ardoz, Madrid", horario: "23/03/2026 09:00-14:00 y 15:00-17:00 | 24/03/2026 09:00-14:00 y 15:00-17:00 | 25/03/2026 09:00-14:00 y 15:00-17:00 | 26/03/2026 09:00-14:00 y 15:00-17:00" },
+        "M7C8": { empresa: "Eurovía", direccion: "C. Madrid, 12, 28850 Torrejón de Ardoz, Madrid", horario: "23/03/2026 09:00-14:00 y 15:00-17:00 | 24/03/2026 09:00-14:00 y 15:00-17:00 | 25/03/2026 09:00-14:00 y 15:00-17:00 | 26/03/2026 09:00-14:00 y 15:00-17:00" },
 
-        "35": { empresa: "CEIP Conde Duque de Olivares", direccion: "Plaza Duquesa de Alba, 3", horario: "09:00 a 14:00" },
-        "36": { empresa: "CEIP Conde Duque de Olivares", direccion: "Plaza Duquesa de Alba, 3", horario: "09:00 a 14:00" },
-        "37": { empresa: "CEIP Conde Duque de Olivares", direccion: "Plaza Duquesa de Alba, 3", horario: "09:00 a 14:00" },
+        "X2P6": { empresa: "CEIP Conde Duque de Olivares", direccion: "Plaza Duquesa de Alba, 3", horario: "09:00 a 14:00" },
+        "K9R4": { empresa: "CEIP Conde Duque de Olivares", direccion: "Plaza Duquesa de Alba, 3", horario: "09:00 a 14:00" },
+        "B6L2": { empresa: "CEIP Conde Duque de Olivares", direccion: "Plaza Duquesa de Alba, 3", horario: "09:00 a 14:00" },
 
-        "38": { empresa: "Editorial Verbum", direccion: "Travesía Sierra de Gata 5, La Poveda (Arganda del Rey)", horario: "23/03/2026 10:00-13:00 | 24/03/2026 10:00-13:00 | 25/03/2026 10:00-13:00 | 26/03/2026 10:00-13:00" },
-        "39": { empresa: "Editorial Verbum", direccion: "Travesía Sierra de Gata 5, La Poveda (Arganda del Rey)", horario: "23/03/2026 10:00-13:00 | 24/03/2026 10:00-13:00 | 25/03/2026 10:00-13:00 | 26/03/2026 10:00-13:00" },
-        "40": { empresa: "Editorial Verbum", direccion: "Travesía Sierra de Gata 5, La Poveda (Arganda del Rey)", horario: "23/03/2026 10:00-13:00 | 24/03/2026 10:00-13:00 | 25/03/2026 10:00-13:00 | 26/03/2026 10:00-13:00" },
+        "Q8H5": { empresa: "Editorial Verbum", direccion: "Travesía Sierra de Gata 5, La Poveda (Arganda del Rey)", horario: "23/03/2026 10:00-13:00 | 24/03/2026 10:00-13:00 | 25/03/2026 10:00-13:00 | 26/03/2026 10:00-13:00" },
+        "S4M7": { empresa: "Editorial Verbum", direccion: "Travesía Sierra de Gata 5, La Poveda (Arganda del Rey)", horario: "23/03/2026 10:00-13:00 | 24/03/2026 10:00-13:00 | 25/03/2026 10:00-13:00 | 26/03/2026 10:00-13:00" },
+        "T9C3": { empresa: "Editorial Verbum", direccion: "Travesía Sierra de Gata 5, La Poveda (Arganda del Rey)", horario: "23/03/2026 10:00-13:00 | 24/03/2026 10:00-13:00 | 25/03/2026 10:00-13:00 | 26/03/2026 10:00-13:00" },
 
-        "41": { empresa: "Clínica Dental Nexus", direccion: "Calle Circunvalación 2, Torrejón de Ardoz", horario: "23/03/2026 16:00-19:00 | 24/03/2026 16:00-19:00 | 25/03/2026 16:00-19:00 | 26/03/2026 16:00-19:00" },
+        "F7K2": { empresa: "Clínica Dental Nexus", direccion: "Calle Circunvalación 2, Torrejón de Ardoz", horario: "23/03/2026 16:00-19:00 | 24/03/2026 16:00-19:00 | 25/03/2026 16:00-19:00 | 26/03/2026 16:00-19:00" },
 
-        "42": { empresa: "Toscana Arquitectos", direccion: "Ronda de Poniente 7, Torrejón de Ardoz", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
+        "P3W9": { empresa: "Toscana Arquitectos", direccion: "Ronda de Poniente 7, Torrejón de Ardoz", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
 
-        "43": { empresa: "Pendiente de asignación", direccion: "", horario: "" },
-        "44": { empresa: "Pendiente de asignación", direccion: "", horario: "" },
+        "L5R8": { empresa: "Con su padre", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
+        "D4T6": { empresa: "Pendiente de asignación", direccion: "", horario: "" },
+        "H9P3": { empresa: "Valsam Fisioterapia", direccion: "C. la Chorrera, 11, 28890 Loeches, Madrid", horario: "Pendiente de completar" },
 
-        "45": { empresa: "Valsam Fisioterapia", direccion: "C. la Chorrera, 11, 28890 Loeches, Madrid", horario: "Pendiente de completar" },
+        "M2C7": { empresa: "EI La Casita", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
+        "A8L5": { empresa: "EI La Casita", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
+        "W6R3": { empresa: "EI La Casita", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
+        "E3T7": { empresa: "EI La Casita", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
 
-        "46": { empresa: "EI La Casita", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
-        "47": { empresa: "EI La Casita", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
-        "48": { empresa: "EI La Casita", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
-        "49": { empresa: "EI La Casita", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
-        "50": { empresa: "EI La Casita", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
+        "Q7P6": { empresa: "EOI Torrejón de Ardoz", direccion: "Calle San Fernando 1, Torrejón de Ardoz", horario: "23/03/2026 16:00-19:00 | 24/03/2026 09:30-13:30 | 25/03/2026 09:30-13:30 | 26/03/2026 16:00-19:00" },
 
-        "51": { empresa: "EOI Torrejón de Ardoz", direccion: "Calle San Fernando 1, Torrejón de Ardoz", horario: "23/03/2026 16:00-19:00 | 24/03/2026 09:30-13:30 | 25/03/2026 09:30-13:30 | 26/03/2026 16:00-19:00" },
+        "R9L2": { empresa: "Cador Espacios", direccion: "Calle Alcalá 226, Madrid", horario: "Lunes a Jueves 09:30-13:30" },
 
-        "52": { empresa: "Toscana Arquitectos", direccion: "Ronda de Poniente 7, Torrejón de Ardoz", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
+        "K3M8": { empresa: "EEI El Columpio, Loeches", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
+        "P8T4": { empresa: "EEI Velilla", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
+        "T4H7": { empresa: "EEI El Columpio, Loeches", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
+        "J8P2": { empresa: "EEI El Columpio, Loeches", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
+        "S6L9": { empresa: "CEIP Duque de Alba, Loeches", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
 
-        "53": { empresa: "EEI El Sastrecillo Valiente, Torres", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
-        "54": { empresa: "EEI Velilla", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
-        "55": { empresa: "EEI El Columpio, Loeches", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
-        "56": { empresa: "EEI El Columpio, Loeches", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
-        "57": { empresa: "EEI Velilla", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
+        "L7K4": { empresa: "TAFAD Madrid", direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz", horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30" },
+        "C9T6": { empresa: "TAFAD Madrid", direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz", horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30" },
 
-        "58": { empresa: "TAFAD Madrid", direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz", horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30" },
-        "59": { empresa: "TAFAD Madrid", direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz", horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30" },
+        "B4R8": { empresa: "EEI Velilla", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
+        "M8P5": { empresa: "Toscana Arquitectos", direccion: "Ronda de Poniente 7, Torrejón de Ardoz", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
+        "R3F7": { empresa: "EEI Velilla", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
+        "X6L4": { empresa: "EEI Velilla", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
+        "K2T9": { empresa: "EEI Velilla", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
 
-        "60": { empresa: "EEI Velilla", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
-        "61": { empresa: "Pendiente de asignación", direccion: "", horario: "" },
-        "62": { empresa: "EEI Velilla", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
-        "63": { empresa: "EEI Velilla", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
-        "64": { empresa: "EEI Velilla", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
-        "65": { empresa: "EEI El Sastrecillo Valiente, Torres", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
-        "66": { empresa: "EEI El Sastrecillo Valiente, Torres", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
-        "67": { empresa: "EEI El Sastrecillo Valiente, Torres", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
-        "68": { empresa: "EEI El Columpio, Loeches", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
+        "H5P7": { empresa: "EEI El Sastrecillo Valiente, Torres", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
+        "S8R3": { empresa: "EEI El Sastrecillo Valiente, Torres", direccion: "Pendiente de completar", horario: "Pendiente de completar" },
 
-        "69": null,
-        "70": null,
+        "D7M2": { empresa: "Toscana Arquitectos", direccion: "Ronda de Poniente 7, Torrejón de Ardoz", horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00" },
 
-        "71": { empresa: "TAFAD Madrid", direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz", horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30" }
+        "T5L8": { empresa: "TAFAD Madrid", direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz", horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30" }
       };
 
-      const [numero, setNumero] = React.useState("");
+      const [codigo, setCodigo] = React.useState("");
       const [resultado, setResultado] = React.useState(null);
       const [buscado, setBuscado] = React.useState(false);
 
       const buscarAlumno = () => {
-        const limpio = numero.trim();
+        const limpio = codigo.trim().toUpperCase();
         setBuscado(true);
         setResultado(alumnos[limpio] || null);
       };
 
       const limpiar = () => {
-        setNumero("");
+        setCodigo("");
         setResultado(null);
         setBuscado(false);
       };
@@ -319,7 +348,7 @@
             <p>Programa educativo</p>
             <h1>4º ESO + Empresa</h1>
             <div className="sub">
-              Consulta de destino de estancia. Introduce tu número asignado y verás automáticamente la empresa, la dirección y el horario.
+              Introduce tu código personal para consultar tu empresa, la dirección y el horario de tu estancia.
             </div>
           </div>
 
@@ -327,10 +356,10 @@
             <div className="search-row">
               <input
                 type="text"
-                value={numero}
-                onChange={(e) => setNumero(e.target.value)}
+                value={codigo}
+                onChange={(e) => setCodigo(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Introduce tu número, por ejemplo: 17"
+                placeholder="Introduce tu código, por ejemplo: K7P4"
               />
               <button className="btn-primary" onClick={buscarAlumno}>Consultar</button>
               <button className="btn-secondary" onClick={limpiar}>Limpiar</button>
@@ -340,15 +369,15 @@
               <div className="steps">
                 <div className="step">
                   <h3>Paso 1</h3>
-                  <p>Busca tu número en el listado entregado por el centro.</p>
+                  <p>Busca la tarjeta que te ha entregado el centro.</p>
                 </div>
                 <div className="step">
                   <h3>Paso 2</h3>
-                  <p>Escríbelo en la casilla y pulsa en consultar.</p>
+                  <p>Introduce tu código personal en la casilla.</p>
                 </div>
                 <div className="step">
                   <h3>Paso 3</h3>
-                  <p>Verás tu empresa asignada, dirección y horario.</p>
+                  <p>Consulta tu empresa, dirección y horario.</p>
                 </div>
               </div>
             )}
@@ -357,10 +386,10 @@
               <div className="result">
                 <div className="result-top">
                   <div>
-                    <small>Asignación encontrada</small>
+                    <small>Código verificado</small>
                     <h2>Asignación de empresa</h2>
                   </div>
-                  <div className="badge">Nº {numero}</div>
+                  <div className="badge">Acceso correcto</div>
                 </div>
 
                 <div className="grid">
@@ -382,15 +411,15 @@
 
             {buscado && !resultado && (
               <div className="error">
-                <strong>Número no encontrado</strong>
+                <strong>Código no válido</strong>
                 <div style={{marginTop: "8px"}}>
-                  Revisa que el número esté bien escrito y vuelve a intentarlo.
+                  Revisa que el código esté bien escrito y vuelve a intentarlo.
                 </div>
               </div>
             )}
 
             <div className="footer-box">
-              Introduce únicamente tu número de orden para consultar tu empresa, dirección y horario.
+              Introduce únicamente el código que te ha entregado el centro.
             </div>
           </div>
         </div>
