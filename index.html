@@ -1,151 +1,701 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>4º ESO + Empresa</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>4º ESO + Empresa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-<style>
-body {
-  font-family: Arial;
-  background: #f5f7fb;
-  padding: 20px;
-}
+  <style>
+    * { box-sizing: border-box; }
 
-.container {
-  max-width: 900px;
-  margin: auto;
-  background: white;
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #e8eefc 0%, #ffffff 50%, #e0f2fe 100%);
+      min-height: 100vh;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-h1 {
-  margin-bottom: 20px;
-}
+    .card {
+      width: 100%;
+      max-width: 960px;
+      background: rgba(255,255,255,0.97);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      border: 1px solid #fff;
+    }
 
-input {
-  padding: 12px;
-  font-size: 16px;
-  width: 60%;
-  margin-right: 10px;
-}
+    .header {
+      background: linear-gradient(90deg, #4f46e5, #0ea5e9);
+      color: white;
+      padding: 32px 24px;
+    }
 
-button {
-  padding: 12px;
-  font-size: 16px;
-  cursor: pointer;
-}
+    .header p {
+      margin: 0 0 8px 0;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
 
-.result {
-  margin-top: 20px;
-  padding: 20px;
-  border-radius: 15px;
-  background: #ecfdf5;
-}
+    .header h1 {
+      margin: 0;
+      font-size: 38px;
+    }
 
-.error {
-  margin-top: 20px;
-  padding: 20px;
-  border-radius: 15px;
-  background: #fee2e2;
-}
-</style>
+    .header .sub {
+      margin-top: 12px;
+      font-size: 16px;
+      line-height: 1.5;
+      opacity: 0.95;
+      max-width: 760px;
+    }
+
+    .content {
+      padding: 24px;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .search-row input {
+      flex: 1;
+      min-width: 220px;
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid #cbd5e1;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+
+    .search-row button {
+      padding: 16px 22px;
+      border: none;
+      border-radius: 18px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background: #4f46e5;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #f1f5f9;
+      color: #334155;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .step {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+    }
+
+    .step h3 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      color: #334155;
+    }
+
+    .step p {
+      margin: 0;
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .result {
+      border: 1px solid #bbf7d0;
+      background: linear-gradient(135deg, #ecfdf5, #ffffff);
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .result-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .badge {
+      background: white;
+      border: 1px solid #bbf7d0;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: bold;
+      color: #15803d;
+      font-size: 14px;
+    }
+
+    .result h2 {
+      margin: 0;
+      font-size: 28px;
+      color: #1e293b;
+    }
+
+    .result small {
+      color: #15803d;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: bold;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .box {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .box h4 {
+      margin: 0 0 10px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+    }
+
+    .box p {
+      margin: 0;
+      color: #0f172a;
+      line-height: 1.5;
+      white-space: pre-line;
+    }
+
+    .error {
+      border: 1px solid #fecaca;
+      background: #fff1f2;
+      color: #be123c;
+      border-radius: 24px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .footer-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 16px;
+      color: #475569;
+      font-size: 14px;
+    }
+
+    @media (max-width: 640px) {
+      .header h1 { font-size: 30px; }
+      .content { padding: 18px; }
+      .search-row { flex-direction: column; }
+      .search-row button { width: 100%; }
+    }
+  </style>
 </head>
-
 <body>
-<div id="root"></div>
+  <div id="root"></div>
 
-<script type="text/babel">
+  <script type="text/babel">
+    function App() {
+      const alumnos = {
+        "K7P4": {
+          empresa: "Centro Salud Loeches",
+          direccion: "Calle Virgen de las Angustias s/n, Loeches",
+          horario: "Lunes a Jueves 09:00-14:00"
+        },
+        "L9X2": {
+          empresa: "Centro Salud Loeches",
+          direccion: "Calle Virgen de las Angustias s/n, Loeches",
+          horario: "Lunes a Jueves 09:00-14:00"
+        },
+        "T6B8": {
+          empresa: "Centro Salud Loeches",
+          direccion: "Calle Virgen de las Angustias s/n, Loeches",
+          horario: "Lunes a Jueves 09:00-14:00"
+        },
+        "M4Q7": {
+          empresa: "Centro Salud Loeches",
+          direccion: "Calle Virgen de las Angustias s/n, Loeches",
+          horario: "Lunes a Jueves 09:00-14:00"
+        },
+        "R2H9": {
+          empresa: "Centro Salud Loeches",
+          direccion: "Calle Virgen de las Angustias s/n, Loeches",
+          horario: "Lunes a Jueves 09:00-14:00"
+        },
 
-function App() {
+        "C8F3": {
+          empresa: "TAFAD Madrid",
+          direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz",
+          horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30"
+        },
+        "P6L4": {
+          empresa: "TAFAD Madrid",
+          direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz",
+          horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30"
+        },
+        "Z3T8": {
+          empresa: "TAFAD Madrid",
+          direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz",
+          horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30"
+        },
+        "X9K5": {
+          empresa: "TAFAD Madrid",
+          direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz",
+          horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30"
+        },
 
-const alumnos = {
+        "H4P6": {
+          empresa: "Universidad de Alcalá",
+          direccion: "Plaza de San Diego s/n, Alcalá de Henares",
+          horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
+        },
+        "G8M2": {
+          empresa: "Universidad de Alcalá",
+          direccion: "Plaza de San Diego s/n, Alcalá de Henares",
+          horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 15:00-19:00 | 26/03/2026 09:00-14:00"
+        },
+        "T7R4": {
+          empresa: "Universidad de Alcalá",
+          direccion: "Plaza de San Diego s/n, Alcalá de Henares",
+          horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
+        },
+        "B3F9": {
+          empresa: "Universidad de Alcalá",
+          direccion: "Plaza de San Diego s/n, Alcalá de Henares",
+          horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
+        },
+        "N6J8": {
+          empresa: "Universidad de Alcalá",
+          direccion: "Plaza de San Diego s/n, Alcalá de Henares",
+          horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
+        },
+        "W2P7": {
+          empresa: "Universidad de Alcalá",
+          direccion: "Plaza de San Diego s/n, Alcalá de Henares",
+          horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
+        },
 
-"K7P4": {empresa:"Centro Salud Loeches",direccion:"Calle Virgen de las Angustias s/n, Loeches",horario:"Lunes a Jueves 09:00-14:00"},
-"L9X2": {empresa:"Centro Salud Loeches",direccion:"Calle Virgen de las Angustias s/n, Loeches",horario:"Lunes a Jueves 09:00-14:00"},
+        "Y8L3": {
+          empresa: "Frimagón",
+          direccion: "Carretera Loeches a Alcalá de Henares, 1",
+          horario: "Lunes a Jueves 09:00-13:00"
+        },
 
-"C8F3": {empresa:"TAFAD Madrid",direccion:"Av. Cristóbal Colón 54, Torrejón",horario:"Lunes a Jueves 08:30-14:30"},
+        "Q5C7": {
+          empresa: "Policía Local Loeches",
+          direccion: "C. Molino, 29, 28890 Loeches, Madrid",
+          horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00"
+        },
+        "S9V4": {
+          empresa: "Policía Local Loeches",
+          direccion: "C. Molino, 29, 28890 Loeches, Madrid",
+          horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00"
+        },
+        "F3K6": {
+          empresa: "Policía Local Loeches",
+          direccion: "C. Molino, 29, 28890 Loeches, Madrid",
+          horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
+        },
+        "E7P8": {
+          empresa: "Policía Local Loeches",
+          direccion: "C. Molino, 29, 28890 Loeches, Madrid",
+          horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
+        },
+        "A4T9": {
+          empresa: "Policía Local Loeches",
+          direccion: "C. Molino, 29, 28890 Loeches, Madrid",
+          horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
+        },
+        "J6R3": {
+          empresa: "Policía Local Loeches",
+          direccion: "C. Molino, 29, 28890 Loeches, Madrid",
+          horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00"
+        },
+        "U2K8": {
+          empresa: "Policía Local Loeches",
+          direccion: "C. Molino, 29, 28890 Loeches, Madrid",
+          horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00"
+        },
+        "V4N7": {
+          empresa: "Policía Local Loeches",
+          direccion: "C. Molino, 29, 28890 Loeches, Madrid",
+          horario: "23/03/2026 15:00-19:00 | 24/03/2026 15:00-19:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
+        },
+        "M6Q3": {
+          empresa: "Policía Local Loeches",
+          direccion: "C. Molino, 29, 28890 Loeches, Madrid",
+          horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 15:00-19:00 | 26/03/2026 15:00-19:00"
+        },
 
-"H4P6": {empresa:"Universidad de Alcalá",direccion:"Plaza San Diego s/n, Alcalá de Henares",horario:"Lunes a Jueves 09:00-14:00"},
+        "L3D7": {
+          empresa: "Hospital Quirón Torrejón",
+          direccion: "Avenida de la Constitución 249, Torrejón de Ardoz",
+          horario: "24/03/2026 09:00-13:00 | 25/03/2026 09:00-13:00 | 26/03/2026 09:00-13:00"
+        },
+        "P4M9": {
+          empresa: "Hospital Quirón Torrejón",
+          direccion: "Avenida de la Constitución 249, Torrejón de Ardoz",
+          horario: "24/03/2026 09:00-13:00 | 25/03/2026 09:00-13:00 | 26/03/2026 09:00-13:00"
+        },
+        "K8W2": {
+          empresa: "Hospital Quirón Torrejón",
+          direccion: "Avenida de la Constitución 249, Torrejón de Ardoz",
+          horario: "24/03/2026 09:00-13:00 | 25/03/2026 09:00-13:00 | 26/03/2026 09:00-13:00"
+        },
 
-"C4L8": {empresa:"Universidad Politécnica de Madrid",direccion:"Av. Complutense 30, Madrid",horario:"24-26 Marzo 10:00-14:00"},
+        "T2S6": {
+          empresa: "Subdirección General de Fomento del Empleo",
+          direccion: "Calle Vía Lusitana, 21",
+          horario: "24/03/2026 10:00-14:00 | 25/03/2026 10:00-14:00 | 26/03/2026 10:00-14:00"
+        },
+        "H7X5": {
+          empresa: "Subdirección General de Fomento del Empleo",
+          direccion: "Calle Vía Lusitana, 21",
+          horario: "24/03/2026 10:00-14:00 | 25/03/2026 10:00-14:00 | 26/03/2026 10:00-14:00"
+        },
 
-/* POLICÍA LOCAL */
+        "C4L8": {
+          empresa: "Universidad Politécnica de Madrid",
+          direccion: "Avda. Complutense, 30, 28040 Madrid (Campus Ciudad Universitaria)",
+          horario: "24/03/2026 10:00-14:00 | 25/03/2026 10:00-14:00 | 26/03/2026 10:00-14:00"
+        },
 
-"Q5C7": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 09:00-14:00 | 24/03 09:00-14:00 | 25/03 15:00-19:00 | 26/03 15:00-19:00"},
-"S9V4": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 09:00-14:00 | 24/03 09:00-14:00 | 25/03 15:00-19:00 | 26/03 15:00-19:00"},
-"J6R3": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 09:00-14:00 | 24/03 09:00-14:00 | 25/03 15:00-19:00 | 26/03 15:00-19:00"},
-"U2K8": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 09:00-14:00 | 24/03 09:00-14:00 | 25/03 15:00-19:00 | 26/03 15:00-19:00"},
-"M6Q3": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 09:00-14:00 | 24/03 09:00-14:00 | 25/03 15:00-19:00 | 26/03 15:00-19:00"},
+        "D9F3": {
+          empresa: "CEIP Torres de la Alameda",
+          direccion: "C. de los Paraísos, s/n, 28813 Torres de la Alameda",
+          horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
+        },
+        "G6Q4": {
+          empresa: "CEIP Torres de la Alameda",
+          direccion: "C. de los Paraísos, s/n, 28813 Torres de la Alameda",
+          horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
+        },
 
-"F3K6": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 15:00-19:00 | 24/03 15:00-19:00 | 25/03 09:00-14:00 | 26/03 09:00-14:00"},
-"E7P8": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 15:00-19:00 | 24/03 15:00-19:00 | 25/03 09:00-14:00 | 26/03 09:00-14:00"},
-"A4T9": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 15:00-19:00 | 24/03 15:00-19:00 | 25/03 09:00-14:00 | 26/03 09:00-14:00"},
-"V4N7": {empresa:"Policía Local Loeches",direccion:"C. Molino 29, Loeches",horario:"23/03 15:00-19:00 | 24/03 15:00-19:00 | 25/03 09:00-14:00 | 26/03 09:00-14:00"},
+        "N8T7": {
+          empresa: "Clínica Dental Cueto",
+          direccion: "Calle Arganda, 1, Loeches",
+          horario: "Lunes 09:00-14:00 | Martes 15:30-20:30 | Miércoles 15:30-20:30 | Jueves 09:00-14:00"
+        },
+        "R5J2": {
+          empresa: "Clínica Dental Cueto",
+          direccion: "Calle Arganda, 1, Loeches",
+          horario: "Lunes 15:30-20:30 | Martes 09:00-14:00 | Miércoles 09:00-14:00 | Jueves 15:30-20:30"
+        },
 
-/* OTROS */
+        "M7C8": {
+          empresa: "Eurovía",
+          direccion: "C. Madrid, 12, 28850 Torrejón de Ardoz, Madrid",
+          horario: "23/03/2026 09:00-14:00 y 15:00-17:00 | 24/03/2026 09:00-14:00 y 15:00-17:00 | 25/03/2026 09:00-14:00 y 15:00-17:00 | 26/03/2026 09:00-14:00 y 15:00-17:00"
+        },
 
-"R9L2": {empresa:"Cador Espacios",direccion:"Calle Alcalá 226, Madrid",horario:"Lunes a Jueves 09:30-13:30"},
+        "X2P6": {
+          empresa: "CEIP Conde Duque de Olivares",
+          direccion: "Plaza Duquesa de Alba, 3",
+          horario: "09:00 a 14:00"
+        },
+        "K9R4": {
+          empresa: "CEIP Conde Duque de Olivares",
+          direccion: "Plaza Duquesa de Alba, 3",
+          horario: "09:00 a 14:00"
+        },
+        "B6L2": {
+          empresa: "CEIP Conde Duque de Olivares",
+          direccion: "Plaza Duquesa de Alba, 3",
+          horario: "09:00 a 14:00"
+        },
 
-"M2C7": {empresa:"EI La Casita",direccion:"Calle Molino 1 y 3, Loeches",horario:"Lunes a Jueves 09:00-14:00"},
-"A8L5": {empresa:"EI La Casita",direccion:"Calle Molino 1 y 3, Loeches",horario:"Lunes a Jueves 09:00-14:00"},
-"W6R3": {empresa:"EI La Casita",direccion:"Calle Molino 1 y 3, Loeches",horario:"Lunes a Jueves 09:00-14:00"},
-"E3T7": {empresa:"EI La Casita",direccion:"Calle Molino 1 y 3, Loeches",horario:"Lunes a Jueves 09:00-14:00"},
+        "Q8H5": {
+          empresa: "Editorial Verbum",
+          direccion: "Travesía Sierra de Gata 5, La Poveda (Arganda del Rey)",
+          horario: "23/03/2026 10:00-13:00 | 24/03/2026 10:00-13:00 | 25/03/2026 10:00-13:00 | 26/03/2026 10:00-13:00"
+        },
+        "S4M7": {
+          empresa: "Editorial Verbum",
+          direccion: "Travesía Sierra de Gata 5, La Poveda (Arganda del Rey)",
+          horario: "23/03/2026 10:00-13:00 | 24/03/2026 10:00-13:00 | 25/03/2026 10:00-13:00 | 26/03/2026 10:00-13:00"
+        },
+        "T9C3": {
+          empresa: "Editorial Verbum",
+          direccion: "Travesía Sierra de Gata 5, La Poveda (Arganda del Rey)",
+          horario: "23/03/2026 10:00-13:00 | 24/03/2026 10:00-13:00 | 25/03/2026 10:00-13:00 | 26/03/2026 10:00-13:00"
+        },
 
-"P3W9": {empresa:"Toscana Arquitectos",direccion:"Ronda de Poniente 7, Torrejón",horario:"Lunes a Jueves 09:00-14:00"},
-"M8P5": {empresa:"Toscana Arquitectos",direccion:"Ronda de Poniente 7, Torrejón",horario:"Lunes a Jueves 09:00-14:00"}
+        "F7K2": {
+          empresa: "Clínica Dental Nexus",
+          direccion: "Calle Circunvalación 2, Torrejón de Ardoz",
+          horario: "23/03/2026 16:00-19:00 | 24/03/2026 16:00-19:00 | 25/03/2026 16:00-19:00 | 26/03/2026 16:00-19:00"
+        },
 
-};
+        "P3W9": {
+          empresa: "Toscana Arquitectos",
+          direccion: "Ronda de Poniente 7, Torrejón de Ardoz",
+          horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
+        },
 
-const [codigo,setCodigo]=React.useState("");
-const [resultado,setResultado]=React.useState(null);
-const [buscado,setBuscado]=React.useState(false);
+        "L5R8": {
+          empresa: "Con su padre",
+          direccion: "Pendiente de completar",
+          horario: "Pendiente de completar"
+        },
 
-const buscar=()=>{
-  const c=codigo.toUpperCase().trim();
-  setResultado(alumnos[c]);
-  setBuscado(true);
-}
+        "H9P3": {
+          empresa: "Valsam Fisioterapia",
+          direccion: "C. la Chorrera, 11, 28890 Loeches, Madrid",
+          horario: "Pendiente de completar"
+        },
 
-return(
-<div className="container">
+        "M2C7": {
+          empresa: "EI La Casita",
+          direccion: "Calle Molino 1 y 3, Loeches",
+          horario: "Lunes a Jueves 09:00-14:00"
+        },
+        "A8L5": {
+          empresa: "EI La Casita",
+          direccion: "Calle Molino 1 y 3, Loeches",
+          horario: "Lunes a Jueves 09:00-14:00"
+        },
+        "W6R3": {
+          empresa: "EI La Casita",
+          direccion: "Calle Molino 1 y 3, Loeches",
+          horario: "Lunes a Jueves 09:00-14:00"
+        },
+        "E3T7": {
+          empresa: "EI La Casita",
+          direccion: "Calle Molino 1 y 3, Loeches",
+          horario: "Lunes a Jueves 09:00-14:00"
+        },
 
-<h1>4º ESO + Empresa</h1>
+        "Q7P6": {
+          empresa: "EOI Torrejón de Ardoz",
+          direccion: "Calle San Fernando 1, Torrejón de Ardoz",
+          horario: "23/03/2026 16:00-19:00 | 24/03/2026 09:30-13:30 | 25/03/2026 09:30-13:30 | 26/03/2026 16:00-19:00"
+        },
 
-<input
-value={codigo}
-onChange={e=>setCodigo(e.target.value)}
-placeholder="Introduce tu código"
-/>
+        "R9L2": {
+          empresa: "Cador Espacios",
+          direccion: "Calle Alcalá 226, Madrid",
+          horario: "Lunes a Jueves 09:30-13:30"
+        },
 
-<button onClick={buscar}>Consultar</button>
+        "K3M8": {
+          empresa: "EEI El Columpio, Loeches",
+          direccion: "Pendiente de completar",
+          horario: "Pendiente de completar"
+        },
+        "P8T4": {
+          empresa: "CEIP Duque de Alba, Loeches",
+          direccion: "Pendiente de completar",
+          horario: "Pendiente de completar"
+        },
+        "T4H7": {
+          empresa: "EEI El Columpio, Loeches",
+          direccion: "Pendiente de completar",
+          horario: "Pendiente de completar"
+        },
+        "J8P2": {
+          empresa: "EEI El Columpio, Loeches",
+          direccion: "Pendiente de completar",
+          horario: "Pendiente de completar"
+        },
+        "S6L9": {
+          empresa: "CEIP Duque de Alba, Loeches",
+          direccion: "Pendiente de completar",
+          horario: "Pendiente de completar"
+        },
 
-{resultado &&
-<div className="result">
-<p><b>Empresa:</b> {resultado.empresa}</p>
-<p><b>Dirección:</b> {resultado.direccion}</p>
-<p><b>Horario:</b> {resultado.horario}</p>
-</div>
-}
+        "L7K4": {
+          empresa: "TAFAD Madrid",
+          direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz",
+          horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30"
+        },
+        "C9T6": {
+          empresa: "TAFAD Madrid",
+          direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz",
+          horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30"
+        },
 
-{buscado && !resultado &&
-<div className="error">
-Código no válido
-</div>
-}
+        "B4R8": {
+          empresa: "EEI Velilla",
+          direccion: "Pendiente de completar",
+          horario: "Pendiente de completar"
+        },
 
-</div>
-);
-}
+        "M8P5": {
+          empresa: "Toscana Arquitectos",
+          direccion: "Ronda de Poniente 7, Torrejón de Ardoz",
+          horario: "23/03/2026 09:00-14:00 | 24/03/2026 09:00-14:00 | 25/03/2026 09:00-14:00 | 26/03/2026 09:00-14:00"
+        },
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+        "X6L4": {
+          empresa: "EEI Velilla",
+          direccion: "Pendiente de completar",
+          horario: "Pendiente de completar"
+        },
+        "K2T9": {
+          empresa: "EEI Velilla",
+          direccion: "Pendiente de completar",
+          horario: "Pendiente de completar"
+        },
 
-</script>
+        "H5P7": {
+          empresa: "EEI El Sastrecillo Valiente, Torres",
+          direccion: "Pendiente de completar",
+          horario: "Pendiente de completar"
+        },
+        "S8R3": {
+          empresa: "EEI El Sastrecillo Valiente, Torres",
+          direccion: "Pendiente de completar",
+          horario: "Pendiente de completar"
+        },
+
+        "T5L8": {
+          empresa: "TAFAD Madrid",
+          direccion: "Avenida Cristóbal Colón 54, Torrejón de Ardoz",
+          horario: "23/03/2026 08:30-14:30 | 24/03/2026 08:30-14:30 | 25/03/2026 08:30-14:30 | 26/03/2026 08:30-14:30"
+        },
+
+        "N4H6": {
+          empresa: "EEI El Columpio, Loeches",
+          direccion: "Pendiente de completar",
+          horario: "Pendiente de completar"
+        }
+      };
+
+      const [codigo, setCodigo] = React.useState("");
+      const [resultado, setResultado] = React.useState(null);
+      const [buscado, setBuscado] = React.useState(false);
+
+      const buscarAlumno = () => {
+        const limpio = codigo.trim().toUpperCase();
+        setBuscado(true);
+        setResultado(alumnos[limpio] || null);
+      };
+
+      const limpiar = () => {
+        setCodigo("");
+        setResultado(null);
+        setBuscado(false);
+      };
+
+      const handleKeyDown = (e) => {
+        if (e.key === "Enter") buscarAlumno();
+      };
+
+      return (
+        <div className="card">
+          <div className="header">
+            <p>Programa educativo</p>
+            <h1>4º ESO + Empresa</h1>
+            <div className="sub">
+              Escanea el QR del centro y escribe tu código personal para consultar tu empresa, dirección y horario de estancia.
+            </div>
+          </div>
+
+          <div className="content">
+            <div className="search-row">
+              <input
+                type="text"
+                value={codigo}
+                onChange={(e) => setCodigo(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Introduce tu código, por ejemplo: K7P4"
+              />
+              <button className="btn-primary" onClick={buscarAlumno}>Consultar</button>
+              <button className="btn-secondary" onClick={limpiar}>Limpiar</button>
+            </div>
+
+            {!resultado && !buscado && (
+              <div className="steps">
+                <div className="step">
+                  <h3>Paso 1</h3>
+                  <p>Escanea el QR o entra en la web del centro.</p>
+                </div>
+                <div className="step">
+                  <h3>Paso 2</h3>
+                  <p>Introduce el código personal que te ha entregado el profesorado.</p>
+                </div>
+                <div className="step">
+                  <h3>Paso 3</h3>
+                  <p>Consulta tu empresa, dirección y horario de estancia.</p>
+                </div>
+              </div>
+            )}
+
+            {resultado && (
+              <div className="result">
+                <div className="result-top">
+                  <div>
+                    <small>Código verificado</small>
+                    <h2>Asignación de empresa</h2>
+                  </div>
+                  <div className="badge">Acceso correcto</div>
+                </div>
+
+                <div className="grid">
+                  <div className="box">
+                    <h4>Empresa</h4>
+                    <p>{resultado.empresa || "Pendiente de asignación"}</p>
+                  </div>
+                  <div className="box">
+                    <h4>Dirección</h4>
+                    <p>{resultado.direccion || "Pendiente de completar"}</p>
+                  </div>
+                  <div className="box">
+                    <h4>Horario</h4>
+                    <p>{resultado.horario || "Pendiente de completar"}</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {buscado && !resultado && (
+              <div className="error">
+                <strong>Código no válido</strong>
+                <div style={{ marginTop: "8px" }}>
+                  Revisa que el código esté bien escrito y vuelve a intentarlo.
+                </div>
+              </div>
+            )}
+
+            <div className="footer-box">
+              Introduce únicamente el código que te ha entregado el centro.
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
 </body>
 </html>
